@@ -2,21 +2,30 @@
   <div >
     <navbar />
     <router-view/>
-    <!-- Footer lägger du här -->
+    <Footer/>
+    
   </div>
 </template>
 
 <script>
+import Footer from './components/Navigation/Footer.vue'
 import Navbar from './components/Navigation/Navbar'
+
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    Footer
   }
 }
 </script>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,5 +45,19 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.gridcontainer {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
 }
 </style>

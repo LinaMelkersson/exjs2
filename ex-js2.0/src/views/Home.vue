@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="gridproducts">
     <productdetail v-for="product in products" :key="product._id" :product="product" />
   </div>
 </template>
@@ -29,3 +29,13 @@ export default {
 }
 
 </script>
+
+<style>
+.gridproducts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  margin-top: 4rem;
+}
+</style>

@@ -3,15 +3,18 @@
         <nav>
             <img src="@/assets/kissylips.png" class="kissylips">
             <router-link to="/"><h1>For Your Loved One</h1></router-link>
-            
 
             <ul v-if="active">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
+                <router-link to="/">Home</router-link>
+                <router-link to="/about">About</router-link>
+                <!-- Mina ordrar/profil -->
+                <!-- Kundvagn -->
+                <!-- Logga ut -->
             </ul>
             <ul v-else>
-            <router-link to="/LogIn">Logga in</router-link>
-            <router-link to="/Reg">Registrera dig</router-link>
+                <router-link to="/about">About</router-link>
+                <router-link to="/LogIn">Logga in</router-link>
+                <router-link to="/Reg">Registrera dig</router-link>
             </ul>
         </nav>
     </div>
@@ -37,8 +40,10 @@ export default {
   }
   ul {
     list-style: none;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0;
     width: 20%;
   }
   a {
