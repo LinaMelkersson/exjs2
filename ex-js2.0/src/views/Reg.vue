@@ -1,56 +1,57 @@
 <template>
 <div class="card">
 
-    <h5 class="card-header info-color white-text text-center py-4">
-        <strong>Sign up</strong>
-    </h5>
+    <h3 class="rubrik">
+        <strong>Registrera dig</strong>
+    </h3>
 
-    <div class="card-body px-lg-5 pt-0">
+    <div class="form">
 
-        <form class="text-center" style="color: #757575;" action="#!">
+        <form class="text-center" action="#!">
 
             <div class="form-row">
                 <div class="col">
                     <div class="md-form">
+                        <label for="materialRegisterFormFirstName">Förnamn:</label>
                         <input type="text" id="materialRegisterFormFirstName" @keyup.a="logName" class="form-control">
-                        <label for="materialRegisterFormFirstName">First name</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="md-form">
-                        <input type="email" id="materialRegisterFormLastName" class="form-control">
-                        <label for="materialRegisterFormLastName">Last name</label>
+                        <label for="materialRegisterFormLastName">Efternamn:</label>
+                        <input type="text" id="materialRegisterFormLastName" class="form-control"> 
                     </div>
                 </div>
             </div>
 
             <div class="md-form mt-0">
+                <label for="materialRegisterFormEmail">E-mail:</label>
                 <input type="email" id="materialRegisterFormEmail" class="form-control">
-                <label for="materialRegisterFormEmail">E-mail</label>
             </div>
 
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
-                <label for="materialRegisterFormPassword">Password</label>
-                <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                    At least 8 characters and 1 digit
-                </small>
+                <label for="materialRegisterFormPassword">Lösenord:</label>
+                <div class="extrainfo">
+                    <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                    <small id="materialRegisterFormPasswordHelpBlock" class="small">
+                    Minst 8 bokstäver och 1 siffra
+                    </small>
+                </div>
+                
             </div>
 
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                <label for="materialRegisterFormPhone">Phone number</label>
-                <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                    Optional - for two step authentication
-                </small>
+                <label for="materialRegisterFormPhone">Mobil nummer:</label>
+                <div class="extrainfo">
+                    <input type="password" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                    <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                    Valfri - tvåstegs verifiering
+                    </small>
+                </div>
+
             </div>
 
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
-                <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our newsletter</label>
-            </div>
-
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+            <button class="subbtn" type="submit">Registrera dig</button>
 
             <hr>
 
@@ -70,5 +71,10 @@ export default {
 </script>
 
 <style>
+.extrainfo {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
 
 </style>

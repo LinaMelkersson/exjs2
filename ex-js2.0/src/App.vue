@@ -51,6 +51,7 @@ export default {
   width: 80%;
   display: flex;
   justify-content: center;
+  align-self: center;
 }
 
 .gridcontainer {

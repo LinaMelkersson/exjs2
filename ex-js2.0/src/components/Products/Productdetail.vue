@@ -35,6 +35,8 @@ export default {
 .textcard {
   text-align: center;
   font-family: cursive;
+  color: black;
+  margin-bottom: 1rem;
 }
 
 
