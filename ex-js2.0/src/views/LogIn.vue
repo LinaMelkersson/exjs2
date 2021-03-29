@@ -56,7 +56,10 @@ export default {
 .card {
   display: grid;
   justify-items: center;
+  margin:auto;
   margin-top: 5rem;
+  padding-bottom: 2rem;
+  width: 50%;
 }
 
 .rubrik {

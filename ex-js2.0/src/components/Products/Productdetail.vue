@@ -1,8 +1,8 @@
 <template>
-  <div class="productcard">
+    <router-link class="productcard" style="text-decoration:none;" :to="'/UnikProduct/' + product._id">
     <img class="imgcard" :src="require('@/assets/' + product.img)" alt="Card image cap">
     <h2 class="textcard">{{product.title}}</h2>
-  </div>
+    </router-link>
 </template>
 
 <script>

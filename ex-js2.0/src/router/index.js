@@ -24,9 +24,10 @@ const routes = [
     component: Reg
   },
   {
-    path: '/UnikProduct',
+    path: '/UnikProduct/:id',
     name: 'UnikProduct',
-    component: UnikProduct
+    component: UnikProduct,
+    props: true
   },
   {
     path: '/about',

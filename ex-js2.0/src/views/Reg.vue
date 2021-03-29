@@ -43,7 +43,7 @@
             <div class="md-form">
                 <label for="materialRegisterFormPhone">Mobil nummer:</label>
                 <div class="extrainfo">
-                    <input type="password" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                    <input type="text" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                     <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
                     Valfri - tvåstegs verifiering
                     </small>
@@ -75,6 +75,4 @@ export default {
     display: grid;
     grid-template-rows: 1fr 1fr;
 }
-
-
 </style>

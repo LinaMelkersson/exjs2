@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <router-link style="text-decoration:none;" class="gridproducts" to="/UnikProduct"><productdetail v-for="product in products" :key="product._id" :product="product" /></router-link>
+  <div class="gridproducts" >
+    <productdetail v-for="product in products" :key="product._id" :product="product" />
   </div>
 </template>
 
