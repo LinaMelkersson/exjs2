@@ -4,13 +4,13 @@
       <router-link to="/"><i class="fas fa-arrow-left"></i></router-link>
 
       <div class="centrerad">
-          <p>{{product.category}}</p>
+          <img class="unikimg" :src="require('@/assets/' + product.img)" alt="">
           <div class="produktbeskrivning">
+              <p>{{product.category}}</p>
               <h1>{{product.title}}</h1>
               <p>{{product.description}}</p>
               <h3>{{product.price}}kr</h3>
           </div>
-          <img :src="require('@/assets/' + product.img)" alt="">
       </div>
     </div>
 </div>
@@ -19,10 +19,8 @@
 <script>
 
 import { mapActions, mapGetters } from 'vuex'
-// import OneProduct from '../components/Products/OneProduct.vue'
 
 export default {
-//   components: { OneProduct },
   props:['id'],
   data() {
     return {
@@ -63,7 +61,15 @@ export default {
 
 .centrerad {
     display: grid;
+    grid-template-columns: 1fr 1fr ;
     justify-content: center;
+    margin: auto;
+    width: 80%;
+}
+
+.unikimg {
+    width: 20rem;
+    margin: auto;
 }
 
 

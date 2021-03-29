@@ -1,37 +1,30 @@
 <template>
-<div class="card">
-
-  <h3 class="rubrik">
-    <strong>Logga In</strong>
-  </h3>
-
-
-  <div class="form">
-
-    <form class="text-center" @submit.prevent="handleSubmit">
-
-      <div class="md-form">
-        <label for="materialLoginFormEmail">E-mail:</label>
-        <input type="email" id="materialLoginFormEmail" class="form-control" ref="email" @keyup="handleChange">
+  <div class="login">
+    <form class="box123 text-center p-5 col-6 mx-auto" @submit.prevent="onSubmit">
+      <p class="h4 mb-4">Logga In</p>
+      
+      <div class="form-outline mb-4">
+        <input type="email" id="form2Example1" class="form-control border-bottom" v-model="email"/>
+        <label class="form-label" for="form2Example1">Email:</label>
       </div>
 
-      <div class="md-form">
-        <label for="materialLoginFormPassword">Lösenord</label>
-        <input type="password" id="materialLoginFormPassword" class="form-control" v-model="password">
+      <div class="form-outline mb-4">
+        <input type="password" id="form2Example2" class="form-control border-bottom" v-model="password"/>
+        <label class="form-label" for="form2Example2">Lösenord:</label>
       </div>
 
-      <button class="subbtn" type="submit">Logga In</button>
+      <button type="submit" class="btn btn-primary btn-block mb-4">Logga In</button>
 
-      <!-- <div>{{ email }}</div>
-      <div>{{ password }}</div> -->
-
-
+      <div class="text-center">
+        <p>Är du inte medlem? <router-link to="/Reg">Registrera Dig</router-link></p>
+        
+      </div>
     </form>
   </div>
-</div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -40,51 +33,41 @@ export default {
     }
   },
   methods: {
-    handleChange() {
-      this.email = this.$refs.email.value
-    },
-    handleSubmit() {
-    this.email = ''
-    this.password = ''
+    ...mapActions(['login']),
+    onSubmit() {
+      if(this.email !== '' && this.password !== '') {
+        let user = {
+          email: this.email,
+          password: this.password
+        }
+
+        let route = this.$route.query.redirect
+        this.login({user, route})
+      }
     }
   }
-  
 }
 </script>
 
 <style>
-.card {
+.login {
   display: grid;
-  justify-items: center;
-  margin:auto;
-  margin-top: 5rem;
-  padding-bottom: 2rem;
-  width: 50%;
+  margin: auto;
+  margin-top: 4rem;
 }
 
-.rubrik {
-  padding: 2rem;
+.box123 {
+  width: 30%;
 }
 
-.md-form {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: 1fr 1fr;
-  text-align: left;
-}
-
-.text-center {
-  display: grid;
-  justify-items: center;
-}
-
-.subbtn {
-  margin-top: 2rem;
+.btn {
   color: black;
-  padding: 0.5rem;
-  border-radius: 10px;
   background: rgb(253, 200, 209);
-  border: none;
+}
+
+.btn:hover {
+  color: #fff;
+  background: rgb(253, 200, 209);
 }
 
 </style>

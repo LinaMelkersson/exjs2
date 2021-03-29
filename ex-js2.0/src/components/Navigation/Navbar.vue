@@ -4,15 +4,14 @@
             <img src="@/assets/kissylips.png" class="kissylips">
             <router-link to="/"><h1>For Your Loved One</h1></router-link>
 
-            <ul v-if="active">
-                <router-link to="/">Home</router-link>
+            <ul class="inloggad" v-if="active">
                 <router-link to="/about">About</router-link>
                 <!-- Mina ordrar/profil -->
                 <!-- Kundvagn -->
                 <!-- Logga ut -->
             </ul>
-            <ul v-else>
-                <router-link to="/about">About</router-link>
+            <ul class="ejloggad" v-else>
+                <router-link to="/about">Om oss</router-link>
                 <router-link to="/LogIn">Logga in</router-link>
                 <router-link to="/Reg">Registrera dig</router-link>
             </ul>
@@ -30,21 +29,29 @@ export default {
 
 <style scoped>
   nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     background: rgb(253, 200, 209);
-    color: rgb(7, 7, 7);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    height: 4rem;
+    color: #fff;
+    height: 5rem;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
   }
+
+  .ejloggad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+    
+  }
+
   ul {
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 0;
     padding: 0;
-    width: 20%;
+    width: 30%;
   }
   a {
     text-decoration: none;
@@ -58,8 +65,7 @@ export default {
 
   .kissylips {
       padding: 0;
-      margin-top: 7rem;
-      margin-left: 5rem;
       height: 10rem; 
+      margin: auto;
   }
 </style>

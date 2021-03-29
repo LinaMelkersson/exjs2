@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Footer from './components/Navigation/Footer.vue'
 import Navbar from './components/Navigation/Navbar'
 
@@ -16,6 +17,12 @@ export default {
   components: {
     Navbar,
     Footer
+  },
+  methods: {
+    ...mapActions(['checkUser'])
+  },
+  created() {
+    this.checkUser()
   }
 }
 </script>
@@ -60,5 +67,6 @@ export default {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   justify-items: center;
+  margin: auto;
 }
 </style>

@@ -1,78 +1,71 @@
 <template>
-<div class="card">
+  <div class="container mt-5">
+    <form class="text-center p-5" @submit.prevent="onSubmit">
+      <p class="h4 mb-4">Registrera Dig</p>
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="form3Example1" class="form-control border-bottom" v-model="user.firstName"/>
+            <label class="form-label" for="form3Example1">Förnamn:</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="form3Example2" class="form-control border-bottom" v-model="user.lastName"/>
+            <label class="form-label" for="form3Example2">Efternamn:</label>
+          </div>
+        </div>
+      </div>
 
-    <h3 class="rubrik">
-        <strong>Registrera dig</strong>
-    </h3>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email" id="form3Example3" class="form-control border-bottom" v-model="user.email"/>
+        <label class="form-label" for="form3Example3">Email:</label>
+      </div>
 
-    <div class="form">
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="form3Example4" class="form-control border-bottom" v-model="user.password"/>
+        <label class="form-label" for="form3Example4">Lösenord:</label>
+      </div>
 
-        <form class="text-center" action="#!">
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Registrera</button>
 
-            <div class="form-row">
-                <div class="col">
-                    <div class="md-form">
-                        <label for="materialRegisterFormFirstName">Förnamn:</label>
-                        <input type="text" id="materialRegisterFormFirstName" @keyup.a="logName" class="form-control">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="md-form">
-                        <label for="materialRegisterFormLastName">Efternamn:</label>
-                        <input type="text" id="materialRegisterFormLastName" class="form-control"> 
-                    </div>
-                </div>
-            </div>
+      <div class="text-center">
+        <p>Redan medlem? <router-link to="/login">Logga In</router-link></p>
+        
+      </div>
 
-            <div class="md-form mt-0">
-                <label for="materialRegisterFormEmail">E-mail:</label>
-                <input type="email" id="materialRegisterFormEmail" class="form-control">
-            </div>
-
-            <div class="md-form">
-                <label for="materialRegisterFormPassword">Lösenord:</label>
-                <div class="extrainfo">
-                    <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
-                    <small id="materialRegisterFormPasswordHelpBlock" class="small">
-                    Minst 8 bokstäver och 1 siffra
-                    </small>
-                </div>
-                
-            </div>
-
-            <div class="md-form">
-                <label for="materialRegisterFormPhone">Mobil nummer:</label>
-                <div class="extrainfo">
-                    <input type="text" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
-                    <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                    Valfri - tvåstegs verifiering
-                    </small>
-                </div>
-
-            </div>
-
-            <button class="subbtn" type="submit">Registrera dig</button>
-
-            <hr>
-
-        </form>
-    </div>
-</div>
+    </form>
+  </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
+  data() {
+    return {
+      user: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+      }
+    }
+  },
   methods: {
-    logName(e) {
-      console.log(e.key)
+    ...mapActions(['register']),
+    onSubmit(){
+      if(this.user.firstName !== '' && this.user.lastName !== '' && this.user.email !== '' && this.user.password !== '') {
+        this.register(this.user)
+      }
     }
   }
 }
 </script>
 
 <style>
-.extrainfo {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-}
+
 </style>

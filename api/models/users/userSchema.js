@@ -1,13 +1,15 @@
-const mongodb = require('mongoose')
+const mongodb = require('mongoose');
 
 const userSchema = mongodb.Schema({
 
-//   title: { type: String, required: true },
-//   description: { type: String, required: true },
-//   price: { type: Number, required: true },
-//   img: { type: String, required: true },
-//   category: { type: String, required: true }
+  firstName:    { type: String, required: true },
+  lastName:     { type: String, required: true },
+  email:        { type: String, required: true, unique: true },
+  passwordHash: { type: String, required: true },
+  
+  created: { type: Date, default: Date.now },
+  modified: { type: Date, default: Date.now }
 
 })
 
-module.exports = mongodb.model('user', userSchema);
+module.exports = mongodb.model('User', userSchema);
