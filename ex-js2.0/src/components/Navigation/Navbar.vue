@@ -4,13 +4,19 @@
             <img src="@/assets/kissylips.png" class="kissylips">
             <router-link to="/"><h1>For Your Loved One</h1></router-link>
 
-            <ul class="inloggad" v-if="active">
-                <router-link to="/about">About</router-link>
-                <!-- Mina ordrar/profil -->
-                <!-- Kundvagn -->
-                <!-- Logga ut -->
+            
+
+            <ul class="inloggad" v-if="loggedIn">
+              <router-link to="/about">Om oss</router-link>
+
+              <a  href="#" class="nav-link pb-0" @click="logout">Logout</a>
+                
+
+              <!-- Mina ordrar/profil -->
+              <!-- Kundvagn -->
+              <!-- Logga ut -->
             </ul>
-            <ul class="ejloggad" v-else>
+            <ul class="ejloggad" v-if="!loggedIn">
                 <router-link to="/about">Om oss</router-link>
                 <router-link to="/LogIn">Logga in</router-link>
                 <router-link to="/Reg">Registrera dig</router-link>
@@ -20,10 +26,18 @@
 </template>
 
 <script>
-
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  props: ['active']
+  components: {
+
+  },
+  computed: {
+    ...mapGetters(['loggedIn'])
+  },
+    methods: {
+    ...mapActions(['logout'])
+  }
 }
 </script>
 

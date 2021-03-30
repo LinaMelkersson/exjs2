@@ -1,7 +1,7 @@
 const mongodb = require('mongoose');
 const User = require('../users/userSchema');
 const bcrypt = require('bcrypt');
-const auth = require('../../authentication/auth');
+const auth = require('../../auth/auth');
 
 
 exports.registerUser = (req, res) => {
