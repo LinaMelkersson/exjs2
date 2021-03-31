@@ -15,14 +15,9 @@
             <section class="color">
                 <div class="mt-5">
 
-                    <div class="row mt-3" v-if="!loggedIn">
+                    <div class="row mt-3">
                         <div class="col-md-12 text-center text-md-left text-md-right">
                             <button class="btn btn-primary btn-rounded" @click="addProductToCart({ product, quantity })">Add to cart</button>
-                        </div>
-                    </div>
-                    <div class="row mt-3" v-if="loggedIn">
-                        <div class="col-md-12 text-center text-md-left text-md-right">
-                            <button style="outline: none; border: none; background: none;"><router-link class="btn btn-primary btn-rounded" to="/LogIn">Logga In </router-link></button>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,10 @@
         <p class="me-3" style="color: black;">Totalt antal varor:</p>
         <p style="color: black;">{{ cartItemCount }}</p>
     </div>
+    <div style="justify-content: center;" class="d-flex">
+        <p class="me-3" style="color: black;">Totalt pris:</p>
+        <p style="color: black;">{{ cartPriceCount }}kr</p>
+    </div>
 
     
 
@@ -29,7 +33,7 @@ export default {
     CartProduct
   },
   computed: {
-      ...mapGetters(['shoppingCart', 'cartItemCount'])
+      ...mapGetters(['shoppingCart', 'cartItemCount', 'cartPriceCount'])
   },
   }
 </script>

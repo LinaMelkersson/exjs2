@@ -7,6 +7,7 @@
           <div class="antal"><small>{{ item.quantity }} </small></div>
           <!-- x {{ item.product.price}} -->
           <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
+          <!-- <button class="btn btn-primary" @click="removeProductFromCart({ product, quantity })"><i class="fas fa-trash"></i></button> -->
         </div>
     </div>
       <!-- <div>
@@ -21,11 +22,12 @@
 </template>
 
 <script>
-    // import { mapActions, mapGetters } from 'vuex'
+// import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: ['item']
 }
+
 
 
 </script>
