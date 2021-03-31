@@ -4,19 +4,13 @@
             <img src="@/assets/kissylips.png" class="kissylips">
             <router-link to="/"><h1>For Your Loved One</h1></router-link>
 
-            
-
-            <ul class="inloggad" v-if="loggedIn">
+            <ul class="inloggad" v-if="!loggedIn">
               <router-link to="/about">Om oss</router-link>
-
-              <a  href="#" class="nav-link pb-0" @click="logout">Logout</a>
-                
-
-              <!-- Mina ordrar/profil -->
-              <!-- Kundvagn -->
-              <!-- Logga ut -->
+              <router-link to="/user">Din Profil</router-link>
+              <cart />
             </ul>
-            <ul class="ejloggad" v-if="!loggedIn">
+
+            <ul class="ejloggad" v-if="loggedIn">
                 <router-link to="/about">Om oss</router-link>
                 <router-link to="/LogIn">Logga in</router-link>
                 <router-link to="/Reg">Registrera dig</router-link>
@@ -27,9 +21,11 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import Cart from '../Shoppingcart/Cart.vue'
 
 export default {
   components: {
+    Cart
 
   },
   computed: {
@@ -52,11 +48,20 @@ export default {
     padding-top: 0.5rem;
   }
 
+  .navbar-default {
+    overflow: visible;
+  }
+
   .ejloggad {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 2rem;
-    
+  }
+
+  .inloggad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
   }
 
   ul {
@@ -82,4 +87,10 @@ export default {
       height: 10rem; 
       margin: auto;
   }
+
+  .fa-shopping-cart {
+    font-size: 15pt;
+    margin-top: 0.7rem;
+  }
+
 </style>

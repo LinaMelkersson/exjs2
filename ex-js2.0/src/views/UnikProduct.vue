@@ -11,6 +11,17 @@
               <p>{{product.description}}</p>
               <h3>{{product.price}}kr</h3>
           </div>
+
+            <section class="color">
+                <div class="mt-5">
+
+                    <div class="row mt-3">
+                        <div class="col-md-12 text-center text-md-left text-md-right">
+                            <button class="btn btn-primary btn-rounded" @click="addProductToCart({ product, quantity })">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
       </div>
     </div>
 </div>
@@ -28,7 +39,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getProduct'])
+    ...mapActions(['getProduct', 'addProductToCart'])
   },
   computed: {
     ...mapGetters(['product'])
@@ -71,6 +82,5 @@ export default {
     width: 20rem;
     margin: auto;
 }
-
 
 </style>
