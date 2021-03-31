@@ -1,14 +1,15 @@
 <template>
-  <div class="carten">
+<div class="carten">
     <cart-product v-for="item in shoppingCart" :key="item.product.id" :item="item" />
 
-    <div v-if="shoppingCart.length < 1" class="cart-item">
-      <div>
-        Din kundvagn är tom.
-      </div>
+    <div style="justify-content: center; margin-top: 0.5rem;" class="d-flex">
+        <p class="me-3" style="color: black;">Totalt antal varor:</p>
+        <p style="color: black;">{{ cartItemCount }}</p>
     </div>
 
-    <div>
+    
+
+    <div class="knapp">
       <!-- <div>
         <div class="total-price">
           Totalt: <span class="ms-1">1000 SEK</span>
@@ -17,7 +18,7 @@
       <button class="btn btn-primary">Betala</button>
     </div>
 
-  </div>
+</div>
 </template>
 
 <script>
@@ -28,12 +29,25 @@ export default {
     CartProduct
   },
   computed: {
-      ...mapGetters(['shoppingCart'])
+      ...mapGetters(['shoppingCart', 'cartItemCount'])
+  },
   }
-}
 </script>
 
 <style>
+.carten {
+    width: 15rem;
+    height: fit-content;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.knapp {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
 
 
 </style>

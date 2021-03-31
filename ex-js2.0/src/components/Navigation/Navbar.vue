@@ -4,13 +4,20 @@
             <img src="@/assets/kissylips.png" class="kissylips">
             <router-link to="/"><h1>For Your Loved One</h1></router-link>
 
-            <ul class="inloggad" v-if="!loggedIn">
+            <ul class="inloggad" v-if="loggedIn">
               <router-link to="/about">Om oss</router-link>
               <router-link to="/user">Din Profil</router-link>
+                <li class="nav-item" v-if="loggedIn">
+                  <a  href="#" class="nav-link pb-0" @click="logout">Logout</a>
+                </li>
+
+              <!-- Ska vara en dropdown här tack som cart ligger i -->
               <cart />
+              
+              
             </ul>
 
-            <ul class="ejloggad" v-if="loggedIn">
+            <ul class="ejloggad" v-if="!loggedIn">
                 <router-link to="/about">Om oss</router-link>
                 <router-link to="/LogIn">Logga in</router-link>
                 <router-link to="/Reg">Registrera dig</router-link>

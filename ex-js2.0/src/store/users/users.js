@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/axios/axios'
 import router from 'vue-router'
 
 export default {
@@ -36,13 +36,14 @@ export default {
     }
   },
   actions: {
-    register: async ({dispatch}, _user) => {
-      const user = {
-        email: _user.email,
-        password: _user.password
-      }
+    register: async (context, _user) => {
+    //   const user = {
+    //     email: _user.email,
+    //     password: _user.password
+    //   }
       await axios.post('/users/register', _user)
-      dispatch('login', {user})
+    //   dispatch('login', {user})
+    console.log(_user)
     },
     login: ({commit}, payload) => {
       axios.post('/users/login', payload.user)

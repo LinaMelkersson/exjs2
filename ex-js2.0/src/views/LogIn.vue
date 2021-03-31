@@ -41,8 +41,10 @@ export default {
           password: this.password
         }
 
-        let route = this.$route.query.redirect
-        this.login({user, route})
+        this.$router.push({ name: 'Home'});
+
+        this.login({user})
+        
       }
     }
   }
