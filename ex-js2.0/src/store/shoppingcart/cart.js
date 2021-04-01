@@ -1,4 +1,3 @@
-
 export default {
   state: {
     cart: []
@@ -27,27 +26,22 @@ export default {
     ADD_TO_CART: (state, { product, quantity }) => {
       let exists = state.cart.find(item => item.product._id === product._id)
       if(exists) {
-        exists.quantity += quantity
+        exists.quantity += Number(quantity)
         return
       }
       state.cart.push({product, quantity})
     },
     DELETE_PRODUCT_FROM_CART: (state, id) => {
-      state.shoppingCart = state.shoppingCart.filter(item => item.product._id !== id)
-      sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
+      state.cart = state.cart.filter(item => item.product._id !== id)
+      sessionStorage.setItem('cart', JSON.stringify(state.cart))
     },
     DECREMENT_QUANTITY: (state, item) => {
       item.quantity -= 1
-      sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
+      sessionStorage.setItem('cart', JSON.stringify(state.cart))
     },
-    // INCREMENT_QUANTITY: (state, item) => {
-    //   item.quantity += 1
-    //   sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
-    // },
-    INCREMENT_QUANTITY: (state, {product, quantity}) => {
-      let item = state.shoppingCart.find(i => i.product._id === product._id)
-      item.quantity += Number(quantity)
-      sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
+    INCREMENT_QUANTITY: (state, item) => {
+      item.quantity += 1
+      sessionStorage.setItem('cart', JSON.stringify(state.cart))
     }
   },
   actions: {
@@ -65,11 +59,7 @@ export default {
       commit('DECREMENT_QUANTITY', item)
     },
     incrementQuantity: ({commit}, item) => {
-      let i = {
-        ...item,
-        quantity: 1
-      }
-      commit('INCREMENT_QUANTITY', i)
+      commit('INCREMENT_QUANTITY', item)
     }
   }
 }

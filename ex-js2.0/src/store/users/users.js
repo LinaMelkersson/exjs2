@@ -37,12 +37,7 @@ export default {
   },
   actions: {
     register: async (context, _user) => {
-    //   const user = {
-    //     email: _user.email,
-    //     password: _user.password
-    //   }
       await axios.post('/users/register', _user)
-    //   dispatch('login', {user})
     console.log(_user)
     },
     login: ({commit}, payload) => {

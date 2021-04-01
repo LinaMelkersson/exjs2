@@ -13,7 +13,7 @@
         </div>
 
         <div class="knapp">
-            <button class="btn btn-primary">Betala</button>
+            <router-link class="btn btn-primary" to="/User">Betala</router-link>
         </div>
     </div>
 </div>

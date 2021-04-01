@@ -9,7 +9,7 @@
             </div>
             <div class="btngrid">
                 <button class="cartbtn" @click.stop="decrementQuantity(item)"><i class="fas fa-minus"></i></button>
-                <button class="cartbtn" @click.stop="addProductToCart(item)"><i class="fas fa-plus"></i></button>
+                <button class="cartbtn" @click.stop="incrementQuantity(item)"><i class="fas fa-plus"></i></button>
                 <button class="cartbtn" @click.stop="deleteProductFromCart(item.product._id)"><i class="fas fa-trash"></i></button>
             </div>
 
@@ -38,7 +38,7 @@ import { mapActions } from 'vuex'
 export default {
   props: ['item'],
   methods: {
-      ...mapActions (['decrementQuantity', 'deleteProductFromCart', 'addProductToCart'])
+      ...mapActions (['decrementQuantity', 'deleteProductFromCart', 'incrementQuantity'])
   }
 }
 

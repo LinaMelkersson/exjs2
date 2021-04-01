@@ -1,15 +1,42 @@
 <template>
-  <div>
-      <h1>user</h1>
+  <div class="gridproducts" >
+      <orderdetail v-for="order in orders" :key="order._id" :order="order" />
   </div>
 </template>
 
 <script>
-export default {
+import {mapActions, mapGetters} from 'vuex'
+import Orderdetail from '../components/Products/Orderdetail'
 
+
+
+export default {
+  components: {
+    Orderdetail
+  },
+
+  methods: {
+    ...mapActions(['getOrders'])
+  },
+
+  computed: {
+    ...mapGetters(['orders'])
+  },
+
+  mounted() {
+    this.getOrders()
+  }
 }
+
 </script>
 
 <style>
-
+.gridproducts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 3rem;
+  justify-items: center;
+  margin-top: 4rem;
+}
 </style>
