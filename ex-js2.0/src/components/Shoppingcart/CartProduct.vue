@@ -3,10 +3,21 @@
     <div class="cartcart">
         <img class="cartimg" :src="require('@/assets/' + item.product.img)" alt="">
         <div class="gridcart">
-          <div class="text"><strong>{{ item.product.title }}</strong></div>
-          <div class="antal"><small>{{ item.quantity }} </small></div>
-          <!-- x {{ item.product.price}} -->
-          <button class="btn btn-primary"><i class="fas fa-trash"></i></button>
+            <div class="produktgrid">
+                <div class="text"><strong>{{ item.product.title }}</strong></div>
+                <div class="antal"><small>{{ item.quantity }} </small></div>
+            </div>
+            <div class="btngrid">
+                <button class="cartbtn" @click.stop="decrementQuantity(item)"><i class="fas fa-minus"></i></button>
+                <button class="cartbtn" @click.stop="addProductToCart(item)"><i class="fas fa-plus"></i></button>
+                <button class="cartbtn" @click.stop="deleteProductFromCart(item.product._id)"><i class="fas fa-trash"></i></button>
+            </div>
+
+            
+
+
+
+          
           <!-- <button class="btn btn-primary" @click="removeProductFromCart({ product, quantity })"><i class="fas fa-trash"></i></button> -->
         </div>
     </div>
@@ -22,10 +33,13 @@
 </template>
 
 <script>
-// import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
-  props: ['item']
+  props: ['item'],
+  methods: {
+      ...mapActions (['decrementQuantity', 'deleteProductFromCart', 'addProductToCart'])
+  }
 }
 
 
@@ -52,9 +66,28 @@ export default {
 
 .gridcart {
     display: grid;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
+.produktgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 10rem;
+}
+
+.btngrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cartbtn {
+    background: rgb(253, 200, 209);
+    outline: none;
+    border: none;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    border-radius: 10px;
+}
 
 
 .text {

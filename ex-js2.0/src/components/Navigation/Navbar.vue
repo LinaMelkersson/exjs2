@@ -4,19 +4,34 @@
             <img src="@/assets/kissylips.png" class="kissylips">
             <router-link to="/"><h1>For Your Loved One</h1></router-link>
 
+<!-- Inloggad -->
             <ul class="inloggad" v-if="loggedIn">
-              <router-link to="/about">Om oss</router-link>
-              <router-link to="/user">Din Profil</router-link>
-                <li class="nav-item" v-if="loggedIn">
-                  <a  href="#" class="nav-link pb-0" @click="logout">Logout</a>
-                </li>
+              <li><router-link to="/about">Om oss</router-link></li>
 
-              <!-- Ska vara en dropdown här tack som cart ligger i -->
-              <cart />
-              
-              
+              <li><router-link to="/user">Dina Ordrar</router-link></li>
+
+              <li class="dropdown">
+                <button
+                  class="btn btn-primary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <cart />
+                  </div>
+              </li>
+
+              <li class="nav-item" v-if="loggedIn">
+                <a  href="#" class="nav-link pb-0" @click="logout">Logout</a>
+              </li>
+
             </ul>
 
+<!-- Ej inloggad -->
             <ul class="ejloggad" v-if="!loggedIn">
                 <router-link to="/about">Om oss</router-link>
                 <router-link to="/LogIn">Logga in</router-link>
@@ -55,8 +70,14 @@ export default {
     padding-top: 0.5rem;
   }
 
-  .navbar-default {
-    overflow: visible;
+  .dropdown-menu {
+    width: 20rem;
+  }
+
+  #dropdownMenuButton {
+    background: none;
+    box-shadow: none;
+
   }
 
   .ejloggad {
@@ -65,9 +86,10 @@ export default {
     column-gap: 2rem;
   }
 
+
   .inloggad {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 2rem;
   }
 
