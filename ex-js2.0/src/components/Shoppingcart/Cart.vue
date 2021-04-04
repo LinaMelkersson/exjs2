@@ -13,23 +13,43 @@
         </div>
 
         <div class="knapp">
-            <router-link class="btn btn-primary" to="/User">Betala</router-link>
+            <button type="submit" class="btn btn-primary"><router-link style="text-decoration: none; color: black;" to="/User">Betala</router-link></button>
         </div>
     </div>
 </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters} from 'vuex' 
+// mapActions
 import CartProduct from './CartProduct.vue'
 export default {
+    // data() {
+    //     return {
+    //         userId: '',
+    //         date: '',
+    //         orderNumber: '',
+    //         totalPrice: '',
+    //         cart:[]
+    //     }
+    // },
+
+    // methods: {
+    // ...mapActions(['saveOrder']),
+    // onSubmit(){
+    //   if(this.order.userId !== '' && this.order.date !== '' && this.order.orderNumber !== '' && this.order.totalPrice !== '' && this.order.cart !== '') {
+    //     this.saveOrder(this.order)
+    //     console.log(order);
+    //   }
+    // }
+
   components:{
     CartProduct
   },
   computed: {
       ...mapGetters(['shoppingCart', 'cartItemCount', 'cartPriceCount'])
   },
-  }
+    }
 </script>
 
 <style>
@@ -45,7 +65,5 @@ export default {
     justify-content: center;
     margin-bottom: 0.5rem;
 }
-
-
 
 </style>

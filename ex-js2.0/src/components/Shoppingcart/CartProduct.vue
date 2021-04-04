@@ -12,23 +12,8 @@
                 <button class="cartbtn" @click.stop="incrementQuantity(item)"><i class="fas fa-plus"></i></button>
                 <button class="cartbtn" @click.stop="deleteProductFromCart(item.product._id)"><i class="fas fa-trash"></i></button>
             </div>
-
-            
-
-
-
-          
-          <!-- <button class="btn btn-primary" @click="removeProductFromCart({ product, quantity })"><i class="fas fa-trash"></i></button> -->
         </div>
     </div>
-      <!-- <div>
-        <div class="btn-group btn-group-sm me-2" role="group" area-label="quantity">
-          <button class="btn btn-dark" @click.stop="">-</button>
-          <button class="btn btn-dark" @click.stop="">+</button>
-        </div>
-        <button class="btn btn-danger btn-sm " @click.stop=""><i class="fas fa-trash"></i></button>
-      </div> -->
-    <!-- <div class="dropdown-divider"></div> -->
 </div>
 </template>
 

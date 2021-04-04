@@ -1,4 +1,5 @@
 <template>
+
 <div>
     <h2 class="textcard">{{order.totalPrice}}</h2>
     <h2 class="textcard">{{order.cart}}</h2>

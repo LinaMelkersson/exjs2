@@ -9,8 +9,8 @@ const cartSchema = mongodb.Schema({
 
 const orderSchema = mongodb.Schema({
     userId: {type: String, require: true },
-    date: { type: String, required: true},
-    orderNumber: { type: Number, required: true },
+    date: { type: Date, default: Date.now },
+    // orderNumber: { type: Number, required: true },
     totalPrice: { type: String},
     cart: [cartSchema]
 })
