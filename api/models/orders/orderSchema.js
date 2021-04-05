@@ -10,9 +10,9 @@ const cartSchema = mongodb.Schema({
 const orderSchema = mongodb.Schema({
     userId: {type: String, require: true },
     date: { type: Date, default: Date.now },
-    // orderNumber: { type: Number, required: true },
     totalPrice: { type: String},
     cart: [cartSchema]
 })
+// ordernummer i sinnom tid
 
 module.exports = mongodb.model('order', orderSchema);

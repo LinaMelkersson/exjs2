@@ -20,36 +20,36 @@
 </template>
 
 <script>
-import { mapGetters} from 'vuex' 
-// mapActions
+import { mapActions, mapGetters} from 'vuex' 
+import shoppingCart from '@/store/shoppingcart/cart.js'
+import cartPriceCount from '@/store/shoppingcart/cart.js'
+
 import CartProduct from './CartProduct.vue'
 export default {
-    // data() {
-    //     return {
-    //         userId: '',
-    //         date: '',
-    //         orderNumber: '',
-    //         totalPrice: '',
-    //         cart:[]
-    //     }
-    // },
+    data() {
+        return {
+            order: {
+                shoppingCart,
+                cartPriceCount,
+            }
+        }
+    },
+    methods: {
+        ...mapActions(['saveOrder']),
+        onSubmit(){
+            this.saveOrder(this.order)
+            console.log(this.order)
+        }
+    },
 
-    // methods: {
-    // ...mapActions(['saveOrder']),
-    // onSubmit(){
-    //   if(this.order.userId !== '' && this.order.date !== '' && this.order.orderNumber !== '' && this.order.totalPrice !== '' && this.order.cart !== '') {
-    //     this.saveOrder(this.order)
-    //     console.log(order);
-    //   }
-    // }
-
-  components:{
+    components:{
     CartProduct
   },
   computed: {
       ...mapGetters(['shoppingCart', 'cartItemCount', 'cartPriceCount'])
   },
-    }
+}
+
 </script>
 
 <style>

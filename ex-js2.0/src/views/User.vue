@@ -1,7 +1,10 @@
 <template>
+<div>
+  <h2 style="text-align:left; margin-left: 15rem; color:black; margin-top: 5rem;"> Dina Ordrar</h2>
   <div class="gridproducts" >
-      <orderdetail v-for="order in orders" :key="order._id" :order="order" />
+    <orderdetail style="margin-left: 5rem;" v-for="order in orders" :key="order._id" :order="order" />
   </div>
+</div>
 </template>
 
 <script>

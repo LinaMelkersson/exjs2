@@ -31,6 +31,9 @@ export default {
       }
       state.cart.push({product, quantity})
     },
+    ADD_ORDER: (state, {order}) => {
+      state.cart.push({order})
+    },
     DELETE_PRODUCT_FROM_CART: (state, id) => {
       state.cart = state.cart.filter(item => item.product._id !== id)
       sessionStorage.setItem('cart', JSON.stringify(state.cart))
@@ -60,6 +63,14 @@ export default {
     },
     incrementQuantity: ({commit}, item) => {
       commit('INCREMENT_QUANTITY', item)
+    },
+    addOrder: ({commit}, {order}) => {
+      commit('ADD_ORDER', {order})
     }
+    // addOrder: (state, shoppingCart) => {
+    //   let order = []
+    //   order.push(state,shoppingCart)
+    //   return order
+    // }
   }
 }

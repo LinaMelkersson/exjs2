@@ -16,7 +16,10 @@ export default {
         },
         GET_ORDER: (state, order) => {
             state.order = order
-        }
+        },
+        // SAVE_ORDER: (state, shoppingCart) => {
+        //     state.order = shoppingCart
+        // }
     },
     actions: {
         getOrders: async ({commit}) => {
@@ -27,6 +30,11 @@ export default {
             const res = await axios.get('http://localhost:9999/api/orders/' + _id)
             commit('GET_ORDER', res.data)
         },
+
+        saveOrder: async (context, _order) => {
+            await axios.post('/orders/save', _order)
+          console.log(_order)
+          },
     }
   }
   

@@ -5,7 +5,6 @@ const auth = require('../../auth/auth');
 
 
 exports.registerUser = (req, res) => {
-
   User.exists({ email: req.body.email }, (err, result) => {
     if(err) {
       return res.status(400).json(err)
@@ -104,4 +103,9 @@ exports.loginUser = (req, res) => {
         })
       }
     })
+  }
+  exports.getUser = (req, res) => {
+    User.find()
+    .then(data=>res.status(200).json(data))
+    .catch(err=>res.status(500).json(err))
 }

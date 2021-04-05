@@ -13,14 +13,40 @@ exports.getCustomOrder = (req, res) => {
     .catch(err=>res.status(500).json(err))
 }
 
+// exports.saveProduct = (req, res) => {
+//   const product = new Product ({
+
+//     title: req.body.title,
+//     description: req.body.description,
+//     price: req.body.price,
+//     img: req.body.img,
+//     category: req.body.category
+//   })
+
+//   product.save()
+//   .then(() => {
+//     res.status(201).json({
+//       statusCode: 201,
+//       status: true,
+//       message: 'Product created successfully'
+//     })
+//   })
+//   .catch(() => {
+//     res.status(500).json({
+//       statusCode: 500,
+//       status: false,
+//       message: 'Failed to create product'
+//     })
+//   })
+// }
 exports.saveOrder = (req, res) => {
     const order = new Order ({
         userId: req.body.userId,
         date: req.body.date,
-        // orderNumber: req.body.orderNumber,
         totalPrice: req.body.totalPrice,
         cart: req.body.cart
     })
+    // ordernummer i sinnom tid
   
     order.save()
     .then(() => {
@@ -37,4 +63,21 @@ exports.saveOrder = (req, res) => {
         message: 'Failed to create order'
       })
     })
+    }
+    exports.deleteOrder= (req, res) => {
+      Order.deleteOne({ _id: req.params.id })
+      .then(() => {
+        res.status(200).json({
+          statusCode: 200,
+          status: true,
+          message: 'Order deleted'
+        })
+      })
+      .catch(() => {
+        res.status(500).json({
+          statusCode: 500, 
+          status: false,
+          message: 'Failed to delete product'
+        })
+      })
   }

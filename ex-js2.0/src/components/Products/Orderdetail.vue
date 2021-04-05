@@ -1,13 +1,15 @@
 <template>
-
 <div>
-    <h2 class="textcard">{{order.totalPrice}}</h2>
-    <h2 class="textcard">{{order.cart}}</h2>
-    <h2 class="textcard">{{order.date}}</h2>
-    <h2 class="textcard">{{order.orderNumber}}</h2>
-
+  <div class="ordercard">
+    <h2 class="ordertextcard">{{order.cart}}</h2>
+    <!-- Date.now funkar inte riktigt? -->
+    <h2 class="ordertextcard">{{order.date}}</h2>
+    <!-- Total price ska egentligen vara beroende av produktvärdet i kundvagnen...cartPriceCount eller något-->
+    <p class="ordertextcard">Total ordersumma: {{order.totalPrice}}kr</p>
+    <!-- ordernummer nedanför -->
+    <p class="ordertextcard">Ditt ordernummer: {{order._id}}</p> 
 </div>
-    
+</div>  
 </template>
 
 <script>
@@ -19,26 +21,14 @@ export default {
 
 <style>
 
-.productcard {
-  margin-top: 4rem;
-  width: 20vw;
-  display: grid;
-  justify-content: center;
-  border: 1px solid rosybrown;
-  border-radius: 15px;
-  box-shadow: 15px 10px 10px rosybrown;
-}
-
-.imgcard {
-  margin-top: 1rem;
-  height: 12rem;
-  width: 85%;
+.ordercard {
+  border: 2px solid rgb(253, 200, 209);
   border-radius: 10px;
-  justify-self: center;
+  padding:1rem;
 }
 
-.textcard {
-  text-align: center;
+.ordertextcard {
+  text-align: left;
   font-family: cursive;
   color: black;
   margin-bottom: 1rem;
