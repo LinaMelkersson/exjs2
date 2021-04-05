@@ -13,32 +13,33 @@
         </div>
 
         <div class="knapp">
-            <button type="submit" class="btn btn-primary"><router-link style="text-decoration: none; color: black;" to="/User">Betala</router-link></button>
+            <button type="submit" class="btn btn-primary" @click="onSubmit"><router-link style="text-decoration: none; color: black;" to="/User">Betala</router-link></button>
         </div>
     </div>
 </div>
 </template>
 
 <script>
-import { mapActions, mapGetters} from 'vuex' 
-import shoppingCart from '@/store/shoppingcart/cart.js'
-import cartPriceCount from '@/store/shoppingcart/cart.js'
+
+import {mapGetters, mapActions} from 'vuex' 
+
 
 import CartProduct from './CartProduct.vue'
 export default {
-    data() {
-        return {
-            order: {
-                shoppingCart,
-                cartPriceCount,
-            }
-        }
-    },
     methods: {
         ...mapActions(['saveOrder']),
         onSubmit(){
-            this.saveOrder(this.order)
-            console.log(this.order)
+
+            console.log(this.shoppingCart)
+
+            let newOrder = {
+                userId: this.loggedInUserId,
+                totalPrice: this.cartPriceCount,
+                cart: this.shoppingCart
+            }
+
+            this.saveOrder(newOrder)
+            
         }
     },
 
@@ -46,8 +47,9 @@ export default {
     CartProduct
   },
   computed: {
-      ...mapGetters(['shoppingCart', 'cartItemCount', 'cartPriceCount'])
+      ...mapGetters(['shoppingCart', 'cartItemCount', 'cartPriceCount', 'loggedInUserId'])
   },
+  
 }
 
 </script>

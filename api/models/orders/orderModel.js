@@ -13,32 +13,7 @@ exports.getCustomOrder = (req, res) => {
     .catch(err=>res.status(500).json(err))
 }
 
-// exports.saveProduct = (req, res) => {
-//   const product = new Product ({
 
-//     title: req.body.title,
-//     description: req.body.description,
-//     price: req.body.price,
-//     img: req.body.img,
-//     category: req.body.category
-//   })
-
-//   product.save()
-//   .then(() => {
-//     res.status(201).json({
-//       statusCode: 201,
-//       status: true,
-//       message: 'Product created successfully'
-//     })
-//   })
-//   .catch(() => {
-//     res.status(500).json({
-//       statusCode: 500,
-//       status: false,
-//       message: 'Failed to create product'
-//     })
-//   })
-// }
 exports.saveOrder = (req, res) => {
     const order = new Order ({
         userId: req.body.userId,

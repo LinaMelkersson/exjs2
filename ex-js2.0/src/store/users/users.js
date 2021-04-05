@@ -1,13 +1,16 @@
 import axios from '@/axios/axios'
 import router from 'vue-router'
+import jwt from 'jsonwebtoken'
 
 export default {
   state: {
     userToken: null,
-    loggedIn: false
+    loggedIn: false,
+    loggedInUserId: null
   },
   getters: {
-    loggedIn: state => state.loggedIn
+    loggedIn: state => state.loggedIn,
+    loggedInUserId: state => state.loggedInUserId
   },
   mutations: {
     SET_USER: (state, token) => {
@@ -22,7 +25,10 @@ export default {
     CHECK_USER: state => {
       try {
         let token = localStorage.getItem('token')
+
+        const user = jwt.decode(token)
         if(token) {
+          state.loggedInUserId = user.id
           state.userToken = token
           state.loggedIn = true
         } else {

@@ -1,22 +1,33 @@
 <template>
 <div>
+  
   <div class="ordercard">
-    <h2 class="ordertextcard">{{order.cart}}</h2>
-    <!-- Date.now funkar inte riktigt? -->
-    <h2 class="ordertextcard">{{order.date}}</h2>
-    <!-- Total price ska egentligen vara beroende av produktvärdet i kundvagnen...cartPriceCount eller något-->
+    <div v-for="product in order.cart" :key="product._id" :product="product">
+      <div v-for="title in product" :key="title._id" :title="title">
+        <h2 class="ordertextcard">{{title.title}}</h2>
+      </div>
+    </div>
     <p class="ordertextcard">Total ordersumma: {{order.totalPrice}}kr</p>
-    <!-- ordernummer nedanför -->
     <p class="ordertextcard">Ditt ordernummer: {{order._id}}</p> 
 </div>
 </div>  
 </template>
 
 <script>
-export default {
-  props: ['order']
+import {mapGetters, mapActions} from 'vuex'
 
+export default {
+  props: ['order'],
+
+  methods: {
+    ...mapActions(['checkUser'])
+  },
+
+  computed: {
+    ...mapGetters(['loggedInUserId'])
+  }
 }
+
 </script>
 
 <style>
