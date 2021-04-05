@@ -1,7 +1,7 @@
 <template>
 <div>
   
-  <div class="ordercard">
+  <div class="ordercard" v-if="this.loggedInUserId == this.order.userId">
     <div v-for="product in order.cart" :key="product._id" :product="product">
       <div v-for="title in product" :key="title._id" :title="title">
         <h2 class="ordertextcard">{{title.title}}</h2>
